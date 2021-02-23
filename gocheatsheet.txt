@@ -1,0 +1,150 @@
+// Basic Primitive Types
+
+package main
+
+import "fmt"
+
+const (
+	first  = iota
+	second = iota
+)
+
+const (
+	third = iota
+	fourth
+)
+
+func main() {
+
+	// Value Types
+	// var i int
+	// i = 42
+	// fmt.Println(i)
+
+	// var f float32 = 3.14
+	// fmt.Println(f)
+
+	// firstName := "Mriganka"
+	// fmt.Println(firstName)
+
+	// b := true
+	// fmt.Println(b)
+
+	// c := complex(3, 4)
+	// fmt.Println(c)
+
+	// r, j := real(c), imag(c)
+	// fmt.Println(r)
+	// fmt.Println(j)
+
+	// Pointer data type // No Pointer Arithmetic is supported.
+	// var firstName *string = new(string)
+	// *firstName = "Mriganka"
+	// fmt.Println(*firstName)
+
+	// firstName := "Mriganka"
+	// fmt.Println(firstName)
+
+	// ptr := &firstName
+	// fmt.Println(ptr, *ptr)
+
+	// firstName = "Sriparna"
+	// fmt.Println(ptr, *ptr)
+
+	// const pi = 3.1415
+	// fmt.Println(pi)
+
+	// const c = 3
+	// fmt.Println(c + 3)
+	// fmt.Println(c + 1.2)
+
+	// const c int = 3
+	// fmt.Println(c + 3)
+	// // fmt.Println(c + 1.2) // wont work
+	// fmt.Println(float32(c) + 1.3)
+
+	fmt.Println(first, second, third, fourth)
+}
+
+
+// Arrays and Slices
+package main
+
+import "fmt"
+
+func main() {
+
+	// Arrays
+	var arr [3]int
+	arr[0] = 0
+	arr[1] = 1
+	arr[2] = 2
+
+	fmt.Println(arr)
+	fmt.Println(arr[1])
+
+	array := [3]int{0, 1, 2}
+	fmt.Println(array)
+	fmt.Println(array[2])
+
+	// Slices
+	array2 := [3]int{0, 1, 2}
+	slice := array2[:]
+	array2[1] = 42
+	slice[2] = 27
+	fmt.Println(array2, slice)
+
+	slice2 := []int{0, 1, 2}
+	fmt.Println(slice2)
+
+	slice2 = append(slice2, 3, 4, 5)
+	fmt.Println(slice2)
+
+	slice3 := slice2[1:]
+	slice4 := slice2[:2]
+	slice5 := slice2[1:2]
+	fmt.Println(slice2, "    ", slice3)
+	fmt.Println(slice2, "    ", slice4)
+	fmt.Println(slice2, "    ", slice5)
+
+}
+
+// Maps
+
+package main
+
+import "fmt"
+
+func main() {
+	m := map[string]int{"foo": 42}
+	fmt.Println(m)
+	fmt.Println(m["foo"])
+	m["foo"] = 27
+	fmt.Println(m)
+
+	delete(m, "foo")
+	fmt.Println(m)
+}
+
+// functions
+func main() {
+	fmt.Println("Hello World")
+	startWebServer(8888) // calling a function
+	a := startWebServer  // function as variable
+	port, isStarted := a(9999)
+	fmt.Println(port, isStarted)
+}
+
+func startWebServer(port int) (int, error) {
+	fmt.Println("Starting server...")
+	fmt.Println("Server started...", port)
+	return port, nil
+}
+
+func main() {
+	fmt.Println("Hello World")
+	startWebServer(8888) // calling a function
+	a := startWebServer  // function as variable
+	_, isStarted := a(9999) //write only variable _
+	fmt.Println(isStarted)
+}
