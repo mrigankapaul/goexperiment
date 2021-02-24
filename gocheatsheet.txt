@@ -1,3 +1,8 @@
+// SYNTAX REFERENCE
+
+// TODO
+Recover from panic pending
+
 // Basic Primitive Types
 
 package main
@@ -148,3 +153,72 @@ func main() {
 	_, isStarted := a(9999) //write only variable _
 	fmt.Println(isStarted)
 }
+
+// for loop
+func main() {
+	var i int
+	for i < 5 {
+		println(i)
+		i++
+		if i == 3 {
+			continue
+		}
+		println("continuing")
+	}
+}
+
+
+func main() {
+	for i := 0; i < 5; i++ {
+		println(i)
+	}
+}
+
+func main() {
+	var i int
+	for {
+		println(i)
+		i++
+	}
+}
+
+
+// for loops with collections
+func main() {
+
+	slice := []int{1, 2, 3}
+	for i, v := range slice {
+		println(i, v)
+	}
+
+	wellKnownPorts := map[string]int{"http": 80, "https": 443}
+	for key, v := range wellKnownPorts {
+		println(key, v)
+	}
+
+	wellKnownPortsExample := map[string]int{"http": 80, "https": 443}
+	for key1 := range wellKnownPortsExample {
+		println(key1)
+	}
+
+	wellKnownPortsExample2 := map[string]int{"http": 80, "https": 443}
+	for _, value := range wellKnownPortsExample2 {
+		println(value)
+	}
+
+}
+
+// panic 
+func main() {
+	println("Starting web server")
+	panic("Something bad happened")
+}
+
+// if else if and else block
+	if u1.ID != u2.ID {
+		println("Not Same User")
+	} else if u1.FirstName == u2.FirstName {
+		println("Similar User")
+	} else {
+		println("Same User")
+	}
