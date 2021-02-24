@@ -222,3 +222,19 @@ func main() {
 	} else {
 		println("Same User")
 	}
+
+
+// switch case
+func main() {
+	r := HTTPRequest{Method: "GET"}
+
+	switch r.Method {
+	case "GET":
+		println("Get request")
+		fallthrough
+	case "POST":
+		println("Post request")
+	default:
+		println("Default")
+	}
+}
